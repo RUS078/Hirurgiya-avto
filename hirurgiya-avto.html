@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хирургия Авто — автосервис в посёлке Тельмана</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #17181A;
+    --steel: #4B4F54;
+    --paper: #E7E3D8;
+    --rust: #B24A22;
+    --surgical: #2F6659;
+    --chalk: #F5F2EA;
+    --line: rgba(23,24,26,0.14);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3{
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+
+  .mono{
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+  }
+
+  a{ color: inherit; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background: var(--ink);
+    color: var(--chalk);
+    padding: 6.5rem 6vw 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-inner{
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .hero .kicker{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--rust);
+    margin-bottom: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .hero .kicker::before{
+    content:"";
+    width: 22px;
+    height: 1px;
+    background: var(--rust);
+    display: inline-block;
+  }
+
+  .hero h1{
+    font-size: clamp(3.2rem, 9vw, 6.4rem);
+    line-height: 0.94;
+    max-width: 14ch;
+  }
+
+  .stitch-wrap{
+    display: inline-block;
+    position: relative;
+    width: fit-content;
+  }
+
+  .stitch-line{
+    display: block;
+    height: 14px;
+    margin: 0.35em 0 0.15em;
+  }
+
+  .stitch-line path{
+    fill: none;
+    stroke: var(--rust);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 9 7;
+    stroke-dashoffset: 480;
+    animation: suture 1.6s ease-out 0.35s forwards;
+  }
+
+  @keyframes suture{
+    to{ stroke-dashoffset: 0; }
+  }
+
+  .hero p.lede{
+    font-size: 1.15rem;
+    color: var(--chalk);
+    opacity: 0.86;
+    max-width: 46ch;
+    margin-top: 1.8rem;
+  }
+
+  .hero .cta-row{
+    margin-top: 2.8rem;
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .btn{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.98rem;
+    padding: 0.85rem 1.6rem;
+    border: 1.5px solid var(--chalk);
+    background: transparent;
+    color: var(--chalk);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn.solid{
+    background: var(--rust);
+    border-color: var(--rust);
+    color: var(--chalk);
+  }
+
+  /* ---------- INTRO ---------- */
+  .intro{
+    padding: 5.5rem 6vw;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .intro-inner{
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3rem;
+  }
+
+  .intro h2{
+    font-size: 1.9rem;
+    color: var(--surgical);
+  }
+
+  .intro p{
+    max-width: 58ch;
+    font-size: 1.05rem;
+    color: var(--steel);
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services{
+    background: var(--ink);
+    color: var(--chalk);
+    padding: 5.5rem 6vw 6rem;
+  }
+
+  .services-inner{
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .services h2{
+    color: var(--chalk);
+    font-size: 2.1rem;
+    max-width: 16ch;
+    margin-bottom: 3rem;
+  }
+
+  .chart{
+    border-top: 1px solid rgba(245,242,234,0.22);
+  }
+
+  .row{
+    display: grid;
+    grid-template-columns: 4.5rem 1fr 2.2fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px dashed rgba(245,242,234,0.24);
+    align-items: baseline;
+    transition: background 0.2s ease;
+  }
+
+  .row:hover{
+    background: rgba(178,74,34,0.08);
+  }
+
+  .row .num{
+    font-size: 0.85rem;
+    color: var(--rust);
+  }
+
+  .row h3{
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--chalk);
+  }
+
+  .row p{
+    margin: 0;
+    color: rgba(245,242,234,0.72);
+    font-size: 0.98rem;
+    max-width: 52ch;
+  }
+
+  /* ---------- CONTACTS ---------- */
+  .contacts{
+    padding: 5.5rem 6vw 6rem;
+  }
+
+  .contacts-inner{
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .contacts h2{
+    color: var(--surgical);
+    font-size: 1.9rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .contacts dl{
+    margin: 0;
+  }
+
+  .contacts dt{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--rust);
+    margin-top: 1.4rem;
+  }
+
+  .contacts dt:first-child{ margin-top: 0; }
+
+  .contacts dd{
+    margin: 0.3rem 0 0;
+    font-size: 1.15rem;
+  }
+
+  .contacts .note{
+    font-size: 0.92rem;
+    color: var(--steel);
+    margin-top: 0.4rem;
+  }
+
+  .contacts .closing{
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--ink);
+    max-width: 12ch;
+    align-self: end;
+  }
+
+  footer{
+    padding: 2rem 6vw;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--steel);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 760px){
+    .intro-inner, .contacts-inner{ grid-template-columns: 1fr; }
+    .row{ grid-template-columns: 3rem 1fr; }
+    .row p{ grid-column: 2 / 3; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .stitch-line path{ animation: none; stroke-dashoffset: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="kicker mono">СТО · посёлок Тельмана</div>
+      <h1>
+        <span class="stitch-wrap">
+          Хирургия Авто
+          <svg class="stitch-line" viewBox="0 0 480 14" preserveAspectRatio="none">
+            <path d="M0,7 Q10,0 20,7 T40,7 T60,7 T80,7 T100,7 T120,7 T140,7 T160,7 T180,7 T200,7 T220,7 T240,7 T260,7 T280,7 T300,7 T320,7 T340,7 T360,7 T380,7 T400,7 T420,7 T440,7 T460,7 T480,7"/>
+          </svg>
+        </span>
+      </h1>
+      <p class="lede">Точная диагностика и ремонт вместо догадок. Берёмся за двигатель, коробку, подвеску и кузов — и доводим машину до рабочего состояния, а не до временной заплатки.</p>
+      <div class="cta-row">
+        <a href="#services" class="btn solid">Что лечим</a>
+        <a href="#contacts" class="btn">Как записаться</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="intro-inner">
+      <h2>Диагноз, а не гадание</h2>
+      <p>Автомобиль — это набор систем, каждая со своей историей поломок. Мы разбираем причину, а не только убираем симптом: если стучит подвеска, ищем источник стука, а не глушим его на месяц. Работаем с легковыми автомобилями любых марок.</p>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="services-inner">
+      <h2>Карта услуг</h2>
+      <div class="chart">
+
+        <div class="row">
+          <div class="num mono">№01</div>
+          <h3>Ремонт двигателей</h3>
+          <p>От диагностики неисправности до капитального ремонта — восстанавливаем работу мотора.</p>
+        </div>
+
+        <div class="row">
+          <div class="num mono">№02</div>
+          <h3>Ремонт коробок передач</h3>
+          <p>Механика и автомат: устраняем течи, рывки при переключении, посторонние шумы.</p>
+        </div>
+
+        <div class="row">
+          <div class="num mono">№03</div>
+          <h3>Ремонт подвески</h3>
+          <p>Стуки, увод в сторону, неравномерный износ шин — приводим ходовую в порядок.</p>
+        </div>
+
+        <div class="row">
+          <div class="num mono">№04</div>
+          <h3>Слесарные работы</h3>
+          <p>Тормозная система, замена жидкостей и расходников, плановое обслуживание.</p>
+        </div>
+
+        <div class="row">
+          <div class="num mono">№05</div>
+          <h3>Кузовной ремонт</h3>
+          <p>Покраска, полировка и сварка — от локальных вмятин до восстановления геометрии кузова.</p>
+        </div>
+
+        <div class="row">
+          <div class="num mono">№06</div>
+          <h3>Автомойка</h3>
+          <p>Экспресс-мойка кузова и мойка двигателя после ремонтных работ.</p>
+        </div>
+
+        <div class="row">
+          <div class="num mono">№07</div>
+          <h3>Химчистка салона</h3>
+          <p>Глубокая чистка сидений, ковриков и потолка от въевшейся грязи и запахов.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="contacts" id="contacts">
+    <div class="contacts-inner">
+      <div>
+        <h2>Записаться на приём</h2>
+        <dl>
+          <dt class="mono">Адрес</dt>
+          <dd>Посёлок Тельмана, Ленинградская область</dd>
+          <div class="note">Точный адрес дома уточните — вставьте сюда номер строения или ориентир.</div>
+
+          <dt class="mono">Телефон</dt>
+          <dd>+7 (___) ___-__-__</dd>
+          <div class="note">Замените на действующий номер телефона сервиса.</div>
+
+          <dt class="mono">Часы работы</dt>
+          <dd>Пн–Сб, 09:00–19:00</dd>
+          <div class="note">Проверьте и поправьте под фактический график.</div>
+        </dl>
+      </div>
+      <div class="closing">Приезжайте — разберёмся, что беспокоит машину.</div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Хирургия Авто</span>
+    <span>Посёлок Тельмана, Ленинградская область</span>
+  </footer>
+
+</body>
+</html>
